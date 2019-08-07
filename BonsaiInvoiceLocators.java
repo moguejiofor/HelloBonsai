@@ -85,5 +85,27 @@ public class BonsaiInvoiceLocators {
 		
 		return element = driver.findElement(By.xpath("//button[@class='btn btn-danger btn-block']"));
 	}
+	//invoice data locators
+	public static WebElement itemNameOnInvoice(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//div[contains(text(),'Hourly Design Rate')]"));
+	}
+	public static WebElement unitsOnInvoice(WebDriver driver) {
+	
+		element = driver.findElement(By.xpath("//div[contains(@class,'invoice-editor-line-col-amount')]//div[contains(@class,'ghost-input-wrapper')]//div//div[contains(@class,'ghost-input-toggle-placeholder')][contains(text(),'1')]"));
+		return element;
+	}
+	public static WebElement rateOnInvoice(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//input[@name='rate']"));
+	}
+	public static WebElement taxRateOnInvoice(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//input[@name='tax_percent']"));
+	}
+	public static WebElement discountOnInvoice(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//input[@name='invoice[discount_amount]']"));
+	}
 
 }
