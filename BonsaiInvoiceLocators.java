@@ -73,5 +73,17 @@ public class BonsaiInvoiceLocators {
 		
 		return element = driver.findElement(By.xpath("//button[contains(text(),'Create Invoice')]"));
 	}
+	public static WebElement moreOptionsClickOnInvoice(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//a[@class='btn btn-default invoice-top-action-more-btn']"));
+	}
+	public static WebElement selectDeleteInvoice(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//div[@class='invoice-top-action-more-div dropdown-wrap open']//a[contains(text(),'Delete Invoice')]"));
+	}
+	public static WebElement confirmDeleteInvoice(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//button[@class='btn btn-danger btn-block']"));
+	}
 
 }
