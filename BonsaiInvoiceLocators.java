@@ -1,15 +1,14 @@
-package bonsai_invoice_automation_test;
+package com.hellobonsai.locators;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
-public class BonsaiInvoiceLocators {
+public class BonsaiLocators {
+	public static WebElement element = null;
 	
-	
-	public static WebElement element;
-
-	public static WebElement emailOrPhone(WebDriver driver) {
+	public WebElement emailOrPhone(WebDriver driver) {
 
 		element = driver.findElement(By.xpath("//input[@name='user[email]']"));
 
@@ -17,7 +16,7 @@ public class BonsaiInvoiceLocators {
 
 	}
 
-	public static WebElement passWord(WebDriver driver) {
+	public  WebElement passWord(WebDriver driver) {
 
 		return element = driver.findElement(By.xpath("//input[@name='user[password]']"));
 
@@ -25,7 +24,7 @@ public class BonsaiInvoiceLocators {
 
 	}
 
-	public static WebElement loginButton(WebDriver driver) {
+	public WebElement loginButton(WebDriver driver) {
 
 		element = driver.findElement(By.xpath("//input[@type='submit']"));
 		
@@ -33,79 +32,89 @@ public class BonsaiInvoiceLocators {
  
 	}
 	
-	public static WebElement selectInvoices(WebDriver driver) {
+	public WebElement selectInvoices(WebDriver driver) {
 		return element = driver.findElement(By.xpath("//a[contains(text(),'Invoices')]"));
 	}
 	
-	public static WebElement clickNewInvoice(WebDriver driver) {
+	public WebElement clickNewInvoice(WebDriver driver) {
 		return element = driver.findElement(By.xpath("//a[@class='btn btn-primary hidden-xs top-action-btn']"));
 	}
-	public static WebElement selectAClient(WebDriver driver) {
+	public WebElement selectAClient(WebDriver driver) {
 		return element = driver.findElement(By.xpath("//div[@class='css-1hwfws3 Select__value-container']"));
 		
 	}
 	
-	public static WebElement selectANewClient(WebDriver driver) {
+	public WebElement selectANewClient(WebDriver driver) {
 		
 		  return element = driver.findElement(By.xpath("//div[contains(text(),'+ New Client')]"));
 	}
 	
-	public static WebElement clientName(WebDriver driver) {
+	public  WebElement clientName(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//input[@name='client_organization_name']"));
 	}
 	
-	public static WebElement clientEmail(WebDriver driver) {
+	public  WebElement clientEmail(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//input[@name='client_organization_email']"));
 	}
 	
-	public static WebElement projectName(WebDriver driver) {
+	public  WebElement projectName(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//input[@name='invoice[project_title]']"));
 	}
 	
-	public static WebElement selectOneTime(WebDriver driver) {
+	public WebElement selectOneTime(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//div[contains(text(),'One-Time')]"));
 	}
-	public static WebElement clickCreateInvoice(WebDriver driver) {
+	public  WebElement clickCreateInvoice(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//button[contains(text(),'Create Invoice')]"));
 	}
-	public static WebElement moreOptionsClickOnInvoice(WebDriver driver) {
+	public WebElement moreOptionsClickOnInvoice(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//a[@class='btn btn-default invoice-top-action-more-btn']"));
 	}
-	public static WebElement selectDeleteInvoice(WebDriver driver) {
+	public WebElement selectDeleteInvoice(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//div[@class='invoice-top-action-more-div dropdown-wrap open']//a[contains(text(),'Delete Invoice')]"));
 	}
-	public static WebElement confirmDeleteInvoice(WebDriver driver) {
+	public WebElement confirmDeleteInvoice(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//button[@class='btn btn-danger btn-block']"));
 	}
+	public WebElement getAlertforInvoiceDelete(WebDriver driver) {
+		return element = driver.findElement(By.xpath("//div[contains(@class,'alert')]"));
+	}
 	//invoice data locators
-	public static WebElement itemNameOnInvoice(WebDriver driver) {
-		
-		return element = driver.findElement(By.xpath("//div[contains(text(),'Hourly Design Rate')]"));
-	}
-	public static WebElement unitsOnInvoice(WebDriver driver) {
 	
-		element = driver.findElement(By.xpath("//div[contains(@class,'invoice-editor-line-col-amount')]//div[contains(@class,'ghost-input-wrapper')]//div//div[contains(@class,'ghost-input-toggle-placeholder')][contains(text(),'1')]"));
-		return element;
+	
+	public WebElement itemNameOnInvoice(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//textarea[contains(@placeholder,'Hourly Design Rate')]"));
 	}
-	public static WebElement rateOnInvoice(WebDriver driver) {
+	public WebElement unitsOnInvoice(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//div[contains(@class,'invoice-editor-line-col-amount')]//input[contains(@placeholder,'1')]"));
+		
+	}
+	public WebElement rateOnInvoice(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//input[@name='rate']"));
 	}
-	public static WebElement taxRateOnInvoice(WebDriver driver) {
+	public WebElement taxRateOnInvoice(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//input[@name='tax_percent']"));
 	}
-	public static WebElement discountOnInvoice(WebDriver driver) {
+	public  WebElement discountOnInvoice(WebDriver driver) {
 		
 		return element = driver.findElement(By.xpath("//input[@name='invoice[discount_amount]']"));
 	}
 
-}
+	public WebElement searchBarForInvoices(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//input[@placeholder='Search']"));
+	}
+	}
+
