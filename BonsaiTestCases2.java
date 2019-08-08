@@ -3,20 +3,14 @@ package com.hellobonsai.testcases;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.hellobonsai.actions.BonsaiActions;
 import com.hellobonsai.locators.BonsaiLocators;
-import com.hellobonsai.setup.BonsaiSetup;
+import org.testng.Assert;
 
 
 public class BonsaiTestCases2 {
@@ -77,8 +71,8 @@ public void selectANewClient() throws InterruptedException {
 @Test(dependsOnMethods="selectANewClient")
 public void enterClientInfo() {
 	
-	bonsaiLocators.clientName(driver).sendKeys("Tetra Smith");
-	bonsaiLocators.clientEmail(driver).sendKeys("tetsmith@micro.com");
+	bonsaiLocators.clientName(driver).sendKeys("yetra Smith");
+	bonsaiLocators.clientEmail(driver).sendKeys("yetsmith@micro.com");
 	bonsaiLocators.projectName(driver).sendKeys("Testing Web Application");
 	bonsaiLocators.selectOneTime(driver).click();
 	bonsaiLocators.clickCreateInvoice(driver).click();
@@ -96,15 +90,16 @@ public void deleteInvoice() {
 	bonsaiLocators.selectDeleteInvoice(driver).click();
 	
 }
+
 @Test(dependsOnMethods="deleteInvoice")
 public void confirmDeleteInvoice( ) {
 	bonsaiLocators.confirmDeleteInvoice(driver).click();
-	//driver.findElement(By.xpath("//button[@class='btn btn-danger btn-block']")).click();
-	System.out.println(bonsaiLocators.getAlertforInvoiceDelete(driver).getText());
+	String actual = bonsaiLocators.getAlertforInvoiceDelete(driver).getText();
+	Assert.assertEquals("Your invoice has been successfully deleted.", actual);
 }
 @AfterTest
 public void closeBrowser() {
-	driver.close();
+	driver.quit();
 }
 
 }
