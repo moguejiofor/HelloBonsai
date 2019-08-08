@@ -116,5 +116,36 @@ public class BonsaiLocators {
 		
 		return element = driver.findElement(By.xpath("//input[@placeholder='Search']"));
 	}
+	public WebElement createNewExpenseLink(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//button[contains(text(),'Create New Expense')]"));
+	}
+	public WebElement nameOfExpense(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//input[contains(@placeholder,'Travel expenses')]"));
+	}
+	public WebElement amountOfExpense(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//input[contains(@placeholder,'200.00')]"));
+	}
+	public WebElement categoryOfExpense(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//div[contains(@class,'col-sm-12 mtxl relative')]//div[contains(@class,'css-1hwfws3 Select__value-container')]"));
+	}
+	public WebElement selectAdvertising(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//div[contains(@class,'css-10nd86i dropdown-contained')]//div[contains(text(),'Advertising')]"));
+	}
+	public WebElement expenseDate(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//input[@id='expense_date']"));
+	}
+	public WebElement createNewExpenseButton(WebDriver driver) {
+		
+		return element = driver.findElement(By.xpath("//button[contains(text(),'Create Expense')]"));
+	}
+	public WebElement getAlertforExpenseAdd(WebDriver driver) {
+		return element = driver.findElement(By.xpath("//div[contains(@class,'alert')]"));
+	}
 	}
 
