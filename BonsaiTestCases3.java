@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -72,7 +73,25 @@ public void enterDataOnInvoice() throws InterruptedException {
 		js.executeScript("arguments[0].click();", addExpenseLink);
 		
 	}
-	
+	@Test(dependsOnMethods="clickOnAddExpenseLink")
+	public void createNewExpense() throws InterruptedException {
+		
+		bonsaiLocators.createNewExpenseLink(driver).click();
+		bonsaiLocators.nameOfExpense(driver).sendKeys("Facebook Ad");
+		bonsaiLocators.amountOfExpense(driver).sendKeys("135.00");
+		bonsaiLocators.categoryOfExpense(driver).click();
+		bonsaiLocators.selectAdvertising(driver).click();
+		bonsaiLocators.expenseDate(driver).click();
+		
+		//selecting August 22, 2019
+		driver.findElement(By.xpath("//div[contains(@class,'DayPicker_transitionContainer"
+				+ " DayPicker_transitionContainer_1 DayPicker_transitionContainer__horizontal "
+				+ "DayPicker_transitionContainer__horizontal_2')]//div[2]//div[1]//table[1]//tbody[1]//tr[4]//td[5]")).click();
+		
+		bonsaiLocators.createNewExpenseButton(driver).click();
+		String actual = bonsaiLocators.getAlertforExpenseAdd(driver).getText();
+		Assert.assertEquals("Your expense was successfully created and added to this invoice.", actual);
+	}
 	@AfterTest
 	public void closeBrowser() {
 		
